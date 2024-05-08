@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/propostadb?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true
+    password: 123
+    username: postgress
+  jpa:
+    hibernate:
+      ddl-auto: update
