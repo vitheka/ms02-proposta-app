@@ -1,16 +1,16 @@
-version: '3.8'
+version: '3.9'
 
 services:
-  mysql:
-    image: mysql:8.0.33
-    container_name: book_mysql
+  postgres:
+    image: postgres
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: 1234
+      POSTGRES_PASSWORD: "123"
+      POSTGRES_USER: "postgress"
+      POSTGRES_DB: "propostadb"
     ports:
-      - "3311:3306"
+      - "5433:5432"
     volumes:
-      - book-db:/var/lib/mysql
+      - proposta-db:/var/lib/postgresql/data
 
 volumes:
-  book-db:
+  proposta-db:
