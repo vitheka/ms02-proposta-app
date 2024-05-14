@@ -7,6 +7,8 @@ import com.pieropan.propostaapp.repository.PropostaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PropostaService {
@@ -21,5 +23,9 @@ public class PropostaService {
         proposta = propostaRepository.save(proposta);
 
         return mapper.propostaToPropostaResponseDto(proposta);
+    }
+
+    public List<PropostaResponseDto> obterPropostas() {
+        return mapper.propostasToPropostaResponseDto(propostaRepository.findAll());
     }
 }

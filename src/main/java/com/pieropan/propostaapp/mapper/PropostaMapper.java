@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface PropostaMapper {
 
@@ -27,4 +29,6 @@ public interface PropostaMapper {
     @Mapping(target = "telefone", source = "usuario.telefone")
     @Mapping(target = "renda", source = "usuario.renda")
     PropostaResponseDto propostaToPropostaResponseDto(Proposta proposta);
+
+    List<PropostaResponseDto> propostasToPropostaResponseDto(Iterable<Proposta> request);
 }
