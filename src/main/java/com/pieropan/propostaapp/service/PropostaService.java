@@ -15,14 +15,17 @@ public class PropostaService {
 
     private final PropostaRepository propostaRepository;
     private final PropostaMapper mapper;
+    private final NotificacaoService notificacaoService;
 
     public PropostaResponseDto criar(PropostaRequestDto requestDto) {
 
         var proposta = mapper.convertDtoToProposta(requestDto);
-
         proposta = propostaRepository.save(proposta);
 
-        return mapper.propostaToPropostaResponseDto(proposta);
+        var propostaResponse = mapper.propostaToPropostaResponseDto(proposta);
+        notificacaoService.notificar(propostaResponse, "proposta-pendente.ex");
+
+        return propostaResponse;
     }
 
     public List<PropostaResponseDto> obterPropostas() {
