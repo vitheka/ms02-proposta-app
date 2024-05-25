@@ -12,4 +12,7 @@ spring:
     username: guest
     password: guest
 
+rabbitmq:
+  propostapendente:
+    exchange: 'proposta-pendente.ex'
 
